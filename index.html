@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Madhav Manaha</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+        }
+
+
+        body {
+
+            background: #e8c27b;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+        }
+
+
+        /* ==========================================
+           LANDING SCREEN
+           ========================================== */
+
+        .landing-screen {
+
+            width: 100vw;
+            height: 100vh;
+
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            overflow: hidden;
+
+        }
+
+
+        /* Generated artwork */
+
+        .background-image {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            z-index: 1;
+
+        }
+
+
+        /* Soft overlay */
+
+        .soft-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0.02),
+                    rgba(60, 38, 22, 0.08)
+                );
+
+            z-index: 2;
+
+            pointer-events: none;
+
+        }
+
+
+        /*
+         * Invisible clickable area placed over
+         * the "Begin Your Journey" button
+         * inside the artwork.
+         */
+
+        .begin-area {
+
+            position: absolute;
+
+            z-index: 5;
+
+            left: 50%;
+
+            /*
+             * Moved further upward
+             */
+
+            bottom: 18%;
+
+            transform:
+                translateX(-50%);
+
+            width: 230px;
+
+            height: 65px;
+
+            cursor: pointer;
+
+            border: none;
+
+            border-radius: 40px;
+
+            background: transparent;
+
+        }
+
+
+        .begin-area:focus {
+
+            outline:
+                2px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.9
+                );
+
+            outline-offset: 5px;
+
+        }
+
+
+        /* ==========================================
+           NAME SCREEN
+           ========================================== */
+
+        .name-screen {
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 20;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 25px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(
+                        249,
+                        239,
+                        211,
+                        0.88
+                    ),
+                    rgba(
+                        230,
+                        180,
+                        98,
+                        0.88
+                    )
+                );
+
+            backdrop-filter:
+                blur(4px);
+
+        }
+
+
+        .name-screen.active {
+
+            display: flex;
+
+        }
+
+
+        .name-card {
+
+            width:
+                min(
+                    650px,
+                    92vw
+                );
+
+            padding:
+                50px 45px;
+
+            text-align: center;
+
+            border-radius: 30px;
+
+            background:
+                rgba(
+                    255,
+                    250,
+                    234,
+                    0.86
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.8
+                );
+
+            box-shadow:
+                0 25px 65px
+                rgba(
+                    73,
+                    43,
+                    20,
+                    0.20
+                );
+
+        }
+
+
+        .name-logo {
+
+            font-size: 55px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .name-label {
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 4px;
+
+            color: #286477;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .name-title {
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(
+                    40px,
+                    6vw,
+                    60px
+                );
+
+            color: #4b291a;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .name-description {
+
+            max-width: 500px;
+
+            margin:
+                0 auto 28px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 21px;
+
+            line-height: 1.5;
+
+            color: #674b38;
+
+        }
+
+
+        #nameInput {
+
+            width: 100%;
+
+            padding:
+                16px 22px;
+
+            border-radius: 50px;
+
+            border:
+                1px solid
+                rgba(
+                    40,
+                    100,
+                    119,
+                    0.35
+                );
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.75
+                );
+
+            outline: none;
+
+            font-size: 16px;
+
+            text-align: center;
+
+        }
+
+
+        #nameInput:focus {
+
+            border-color:
+                #286477;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(
+                    40,
+                    100,
+                    119,
+                    0.10
+                );
+
+        }
+
+
+        .continue-button {
+
+            margin-top: 22px;
+
+            border: none;
+
+            border-radius: 40px;
+
+            padding:
+                15px 34px;
+
+            background:
+                #286477;
+
+            color: white;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+        }
+
+
+        .continue-button:hover {
+
+            background:
+                #205568;
+
+        }
+
+
+        .error-message {
+
+            min-height: 19px;
+
+            margin-top: 10px;
+
+            color: #9b382d;
+
+            font-size: 13px;
+
+        }
+
+
+        /* ==========================================
+           MOBILE
+           ========================================== */
+
+        @media (max-width: 600px) {
+
+            .begin-area {
+
+                width: 190px;
+
+                height: 58px;
+
+                bottom: 13%;
+
+            }
+
+
+            .name-card {
+
+                padding:
+                    40px 24px;
+
+            }
+
+
+            .name-description {
+
+                font-size: 18px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         LANDING PAGE
+         ========================================== -->
+
+    <main class="landing-screen">
+
+
+        <img
+            src="assets/madhav-bg.png"
+            alt="Madhav Manaha"
+            class="background-image"
+        >
+
+
+        <div class="soft-overlay"></div>
+
+
+        <!-- Invisible clickable area -->
+
+        <button
+            class="begin-area"
+            id="beginBtn"
+            aria-label="Begin Your Journey"
+            type="button"
+        ></button>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         NAME SCREEN
+         ========================================== -->
+
+    <section
+        class="name-screen"
+        id="nameScreen"
+    >
+
+
+        <div class="name-card">
+
+
+            <div class="name-logo">
+                🦚
+            </div>
+
+
+            <p class="name-label">
+                YOUR JOURNEY BEGINS
+            </p>
+
+
+            <h1 class="name-title">
+                What may we call you?
+            </h1>
+
+
+            <p class="name-description">
+
+                Every journey inward begins
+                with knowing who walks the path.
+
+            </p>
+
+
+            <input
+                type="text"
+                id="nameInput"
+                placeholder="Enter your name..."
+                autocomplete="off"
+                maxlength="40"
+            >
+
+
+            <button
+                class="continue-button"
+                id="continueBtn"
+                type="button"
+            >
+
+                Continue →
+
+            </button>
+
+
+            <p
+                class="error-message"
+                id="nameError"
+            ></p>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+         ========================================== -->
+
+    <script>
+
+
+        /* ------------------------------------------
+           ELEMENTS
+           ------------------------------------------ */
+
+        const beginBtn =
+            document.getElementById(
+                "beginBtn"
+            );
+
+
+        const nameScreen =
+            document.getElementById(
+                "nameScreen"
+            );
+
+
+        const nameInput =
+            document.getElementById(
+                "nameInput"
+            );
+
+
+        const continueBtn =
+            document.getElementById(
+                "continueBtn"
+            );
+
+
+        const nameError =
+            document.getElementById(
+                "nameError"
+            );
+
+
+
+        /* ------------------------------------------
+           BEGIN JOURNEY
+           ------------------------------------------ */
+
+        beginBtn.addEventListener(
+            "click",
+            function () {
+
+                nameScreen.classList.add(
+                    "active"
+                );
+
+                nameInput.focus();
+
+            }
+        );
+
+
+
+        /* ------------------------------------------
+           SAVE NAME
+           ------------------------------------------ */
+
+        continueBtn.addEventListener(
+            "click",
+            function () {
+
+                const name =
+                    nameInput.value.trim();
+
+
+                if (name === "") {
+
+                    nameError.textContent =
+                        "Please enter your name to continue.";
+
+                    nameInput.focus();
+
+                    return;
+
+                }
+
+
+                localStorage.setItem(
+                    "userName",
+                    name
+                );
+
+
+                window.location.href =
+                    "mood.html";
+
+            }
+        );
+
+
+
+        /* ------------------------------------------
+           ENTER KEY
+           ------------------------------------------ */
+
+        nameInput.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Enter"
+                ) {
+
+                    continueBtn.click();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Madhav Manaha | Krishna's Wisdom</title>
+
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="shloka-background">
+
+        <div class="shloka-feather feather-left">🪶</div>
+        <div class="shloka-feather feather-right">🪶</div>
+
+
+        <main class="shloka-container">
+
+
+            <div class="shloka-om">
+                ॐ
+            </div>
+
+
+            <p class="shloka-label">
+                MADHAV'S WISDOM
+            </p>
+
+
+            <h1 id="moodTitle">
+                A word from Madhav
+            </h1>
+
+
+            <p
+                class="shloka-introduction"
+                id="moodMessage"
+            >
+                Let these timeless words meet your मन where it is.
+            </p>
+
+
+            <section class="shloka-card">
+
+
+                <div
+                    class="shloka-number"
+                    id="shlokaNumber"
+                >
+                    Bhagavad Gita
+                </div>
+
+
+                <!-- Sanskrit -->
+
+                <div class="sanskrit-section">
+
+                    <p
+                        class="sanskrit-text"
+                        id="sanskritText"
+                    ></p>
+
+                </div>
+
+
+                <div class="divider"></div>
+
+
+                <!-- Hindi -->
+
+                <div class="meaning-section">
+
+                    <h2>
+                        हिंदी भावार्थ
+                    </h2>
+
+                    <p id="hindiMeaning"></p>
+
+                </div>
+
+
+                <!-- English -->
+
+                <div class="meaning-section">
+
+                    <h2>
+                        English Bhavartha
+                    </h2>
+
+                    <p id="englishMeaning"></p>
+
+                </div>
+
+
+                <!-- Next -->
+
+                <div class="shloka-controls">
+
+                    <button
+                        class="next-shloka-button"
+                        onclick="nextShloka()"
+                    >
+
+                        Next Shloka
+
+                        <span>→</span>
+
+                    </button>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- Back -->
+
+            <button
+                class="back-button"
+                onclick="goBackToMood()"
+            >
+
+                ← Choose another feeling
+
+            </button>
+
+
+            <p class="shloka-footer">
+
+                "Wherever the mind wanders,
+                let wisdom bring it home."
+
+            </p>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         SHLOKA DATABASE
+         ========================================== -->
+
+    <script src="shlokas.js"></script>
+
+
+
+    <script>
+
+        /*
+         * Get the mood selected
+         * on the mood page.
+         */
+
+        let selectedMood =
+            localStorage.getItem("selectedMood");
+
+
+        /*
+         * If no mood exists,
+         * default to Happy.
+         */
+
+        if (!selectedMood || !shlokas[selectedMood]) {
+
+            selectedMood = "Happy";
+
+            localStorage.setItem(
+                "selectedMood",
+                selectedMood
+            );
+        }
+
+
+
+        /*
+         * This array will contain
+         * the order in which the
+         * eight shlokas are shown.
+         */
+
+        let displayOrder = [];
+
+        let currentPosition = 0;
+
+
+
+        /*
+         * ------------------------------------------
+         * SHUFFLE FUNCTION
+         * ------------------------------------------
+         */
+
+        function shuffle(array) {
+
+            const shuffled = [...array];
+
+
+            for (
+                let i = shuffled.length - 1;
+                i > 0;
+                i--
+            ) {
+
+                const j =
+                    Math.floor(
+                        Math.random() * (i + 1)
+                    );
+
+
+                [
+                    shuffled[i],
+                    shuffled[j]
+                ] =
+                [
+                    shuffled[j],
+                    shuffled[i]
+                ];
+
+            }
+
+
+            return shuffled;
+        }
+
+
+
+        /*
+         * ------------------------------------------
+         * CREATE NEW RANDOM ORDER
+         * ------------------------------------------
+         */
+
+        function createNewOrder() {
+
+            const moodList =
+                shlokas[selectedMood];
+
+
+            const indexes =
+                moodList.map(
+                    (_, index) => index
+                );
+
+
+            displayOrder =
+                shuffle(indexes);
+
+
+            currentPosition = 0;
+        }
+
+
+
+        /*
+         * ------------------------------------------
+         * DISPLAY CURRENT SHLOKA
+         * ------------------------------------------
+         */
+
+        function displayShloka() {
+
+            const moodList =
+                shlokas[selectedMood];
+
+
+            const actualIndex =
+                displayOrder[currentPosition];
+
+
+            const shloka =
+                moodList[actualIndex];
+
+
+            /*
+             * Mood title
+             */
+
+            document.getElementById(
+                "moodTitle"
+            ).textContent =
+                selectedMood;
+
+
+            /*
+             * Mood message
+             */
+
+            document.getElementById(
+                "moodMessage"
+            ).textContent =
+                moodMessages[selectedMood];
+
+
+            /*
+             * Chapter / Shloka number
+             */
+
+            document.getElementById(
+                "shlokaNumber"
+            ).textContent =
+                "Bhagavad Gita • " +
+                shloka.ref;
+
+
+            /*
+             * Sanskrit
+             */
+
+            document.getElementById(
+                "sanskritText"
+            ).innerHTML =
+                shloka.sanskrit
+                .replace(/\n/g, "<br>");
+
+
+            /*
+             * Hindi
+             */
+
+            document.getElementById(
+                "hindiMeaning"
+            ).textContent =
+                shloka.hi;
+
+
+            /*
+             * English
+             */
+
+            document.getElementById(
+                "englishMeaning"
+            ).textContent =
+                shloka.en;
+
+        }
+
+
+
+        /*
+         * ------------------------------------------
+         * NEXT SHLOKA
+         * ------------------------------------------
+         */
+
+        function nextShloka() {
+
+            currentPosition++;
+
+
+            /*
+             * Once all 8 have been shown,
+             * create a fresh random order.
+             */
+
+            if (
+                currentPosition >=
+                displayOrder.length
+            ) {
+
+                createNewOrder();
+
+            }
+
+
+            displayShloka();
+
+
+            /*
+             * Move page back to the top.
+             */
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+
+        /*
+         * ------------------------------------------
+         * GO BACK TO MOOD
+         * ------------------------------------------
+         */
+
+        function goBackToMood() {
+
+            window.location.href =
+                "mood.html";
+
+        }
+
+
+
+        /*
+         * ------------------------------------------
+         * START
+         * ------------------------------------------
+         */
+
+        createNewOrder();
+
+        displayShloka();
+
+    </script>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family:
+                "Poppins",
+                sans-serif;
+
+            color: #482713;
+
+        }
+
+
+        /* ==========================================
+           BACKGROUND
+           ========================================== */
+
+        .shloka-background {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                55px 20px 45px;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(
+                        38,
+                        112,
+                        126,
+                        0.22
+                    ),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 90% 70%,
+                    rgba(
+                        42,
+                        119,
+                        108,
+                        0.18
+                    ),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(
+                        255,
+                        210,
+                        120,
+                        0.25
+                    ),
+                    transparent 42%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #f7e6b5,
+                    #f1bd69,
+                    #e3a04d,
+                    #d58a43
+                );
+
+        }
+
+
+        /* ==========================================
+           DECORATIVE FEATHERS
+           ========================================== */
+
+        .shloka-feather {
+
+            position: absolute;
+
+            font-size: 180px;
+
+            opacity: 0.10;
+
+            pointer-events: none;
+
+            user-select: none;
+
+        }
+
+
+        .feather-left {
+
+            top: -25px;
+
+            left: -35px;
+
+            transform:
+                rotate(-30deg);
+
+        }
+
+
+        .feather-right {
+
+            right: -35px;
+
+            bottom: -25px;
+
+            transform:
+                rotate(30deg);
+
+        }
+
+
+        /* ==========================================
+           CONTAINER
+           ========================================== */
+
+        .shloka-container {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+
+        /* ==========================================
+           OM
+           ========================================== */
+
+        .shloka-om {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 48px;
+
+            color: #286477;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        /* ==========================================
+           LABEL
+           ========================================== */
+
+        .shloka-label {
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            font-weight: 600;
+
+            color: #286477;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* ==========================================
+           TITLE
+           ========================================== */
+
+        .shloka-container > h1 {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size:
+                clamp(
+                    42px,
+                    6vw,
+                    62px
+                );
+
+            font-weight: 600;
+
+            color: #492719;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        /* ==========================================
+           INTRODUCTION
+           ========================================== */
+
+        .shloka-introduction {
+
+            max-width: 650px;
+
+            margin:
+                0 auto 35px;
+
+            color: #72533d;
+
+            line-height: 1.7;
+
+            font-size: 15px;
+
+        }
+
+
+        /* ==========================================
+           SHLOKA CARD
+           ========================================== */
+
+        .shloka-card {
+
+            position: relative;
+
+            max-width: 820px;
+
+            margin: 0 auto;
+
+            padding:
+                45px 55px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(
+                    255,
+                    249,
+                    230,
+                    0.82
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.7
+                );
+
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
+
+            box-shadow:
+                0 25px 60px
+                rgba(
+                    73,
+                    43,
+                    20,
+                    0.18
+                );
+
+        }
+
+
+        /* ==========================================
+           SHLOKA NUMBER
+           ========================================== */
+
+        .shloka-number {
+
+            display: inline-block;
+
+            padding:
+                6px 17px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(
+                    40,
+                    100,
+                    119,
+                    0.10
+                );
+
+            color: #286477;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* ==========================================
+           SANSKRIT
+           ========================================== */
+
+        .sanskrit-section {
+
+            padding:
+                10px 0 25px;
+
+        }
+
+
+        .sanskrit-text {
+
+            font-family:
+                "Noto Serif Devanagari",
+                serif;
+
+            font-size:
+                clamp(
+                    25px,
+                    4vw,
+                    36px
+                );
+
+            line-height: 1.8;
+
+            font-weight: 600;
+
+            color: #63371e;
+
+        }
+
+
+        /* ==========================================
+           DIVIDER
+           ========================================== */
+
+        .divider {
+
+            width: 80px;
+
+            height: 2px;
+
+            margin:
+                5px auto 28px;
+
+            background:
+                #c88b4a;
+
+            opacity: 0.65;
+
+        }
+
+
+        /* ==========================================
+           MEANINGS
+           ========================================== */
+
+        .meaning-section {
+
+            margin-bottom: 28px;
+
+            text-align: left;
+
+        }
+
+
+        .meaning-section h2 {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 25px;
+
+            color: #286477;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .meaning-section p {
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            color: #684b39;
+
+        }
+
+
+        /* ==========================================
+           NEXT BUTTON
+           ========================================== */
+
+        .shloka-controls {
+
+            margin-top: 35px;
+
+            display: flex;
+
+            justify-content: center;
+
+        }
+
+
+        .next-shloka-button {
+
+            border: none;
+
+            padding:
+                14px 30px;
+
+            border-radius: 40px;
+
+            background:
+                #286477;
+
+            color: white;
+
+            font-family:
+                "Poppins",
+                sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px
+                rgba(
+                    40,
+                    100,
+                    119,
+                    0.25
+                );
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+
+        }
+
+
+        .next-shloka-button span {
+
+            margin-left: 8px;
+
+            font-size: 18px;
+
+        }
+
+
+        .next-shloka-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(
+                    40,
+                    100,
+                    119,
+                    0.32
+                );
+
+        }
+
+
+        /* ==========================================
+           BACK
+           ========================================== */
+
+        .back-button {
+
+            margin-top: 28px;
+
+            border: none;
+
+            background: transparent;
+
+            color: #684b39;
+
+            font-family:
+                "Poppins",
+                sans-serif;
+
+            font-size: 13px;
+
+            cursor: pointer;
+
+        }
+
+
+        .back-button:hover {
+
+            color: #286477;
+
+        }
+
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+
+        .shloka-footer {
+
+            margin-top: 35px;
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 20px;
+
+            font-style: italic;
+
+            color: #735239;
+
+        }
+
+
+        /* ==========================================
+           MOBILE
+           ========================================== */
+
+        @media (max-width: 650px) {
+
+            .shloka-background {
+
+                padding:
+                    35px 15px;
+
+            }
+
+
+            .shloka-card {
+
+                padding:
+                    32px 22px;
+
+                border-radius: 24px;
+
+            }
+
+
+            .sanskrit-text {
+
+                font-size: 25px;
+
+                line-height: 1.7;
+
+            }
+
+
+            .meaning-section p {
+
+                font-size: 13px;
+
+                line-height: 1.75;
+
+            }
+
+
+            .shloka-feather {
+
+                font-size: 110px;
+
+            }
+
+        }
+
+    </style>
+
+</body>
+
+</html>

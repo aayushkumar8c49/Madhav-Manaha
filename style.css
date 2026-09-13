@@ -1,0 +1,461 @@
+/* =========================================================
+   MADHAV MANAHA
+   Main Website Styling
+   ========================================================= */
+
+
+/* -------------------------
+   BASIC RESET
+   ------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    color: #432616;
+}
+
+
+/* =========================================================
+   MOOD PAGE
+   ========================================================= */
+
+.mood-background {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(42, 157, 143, 0.20),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(37, 91, 112, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 196, 92, 0.25),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f8e6b0 0%,
+            #f5c76f 38%,
+            #e9a34b 70%,
+            #d8893c 100%
+        );
+
+    padding: 55px 25px 45px;
+}
+
+
+/* -------------------------
+   DECORATIVE FEATHERS
+   ------------------------- */
+
+.feather {
+    position: absolute;
+    font-size: 150px;
+    opacity: 0.12;
+    pointer-events: none;
+    user-select: none;
+}
+
+.feather-one {
+    top: -20px;
+    left: -15px;
+    transform: rotate(-25deg);
+}
+
+.feather-two {
+    right: -20px;
+    bottom: -15px;
+    transform: rotate(25deg);
+}
+
+
+/* -------------------------
+   MAIN CONTAINER
+   ------------------------- */
+
+.mood-container {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1150px;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* -------------------------
+   OM SYMBOL
+   ------------------------- */
+
+.om-symbol {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 52px;
+    line-height: 1;
+
+    color: #245c70;
+
+    margin-bottom: 8px;
+
+    text-shadow:
+        0 3px 12px rgba(36, 92, 112, 0.18);
+}
+
+
+/* -------------------------
+   SMALL HEADING
+   ------------------------- */
+
+.small-heading {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+
+    color: #286779;
+
+    margin-bottom: 10px;
+
+    text-transform: uppercase;
+}
+
+
+/* -------------------------
+   MAIN HEADING
+   ------------------------- */
+
+.mood-container h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(42px, 5vw, 66px);
+    font-weight: 600;
+
+    line-height: 1.05;
+
+    color: #4b2819;
+
+    margin-bottom: 18px;
+}
+
+
+/* -------------------------
+   INTRODUCTION
+   ------------------------- */
+
+.mood-introduction {
+    max-width: 700px;
+    margin: 0 auto 45px;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    color: #694a38;
+}
+
+
+/* =========================================================
+   MOOD GRID
+   ========================================================= */
+
+.mood-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 24px;
+
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   MOOD CARD
+   ========================================================= */
+
+.mood-card {
+    position: relative;
+
+    min-height: 210px;
+
+    padding: 28px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 25px;
+
+    background: rgba(255, 248, 226, 0.72);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 12px 30px rgba(105, 65, 25, 0.13);
+
+    cursor: pointer;
+
+    font-family: "Poppins", sans-serif;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+    overflow: hidden;
+}
+
+
+/* Decorative shine */
+
+.mood-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    top: -65px;
+    right: -50px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.35);
+}
+
+
+/* Hover */
+
+.mood-card:hover {
+    transform: translateY(-8px) scale(1.015);
+
+    background: rgba(255, 251, 237, 0.9);
+
+    box-shadow:
+        0 20px 40px rgba(74, 48, 25, 0.20);
+}
+
+
+/* Click */
+
+.mood-card:active {
+    transform: translateY(-2px) scale(0.99);
+}
+
+
+/* -------------------------
+   MOOD ICON
+   ------------------------- */
+
+.mood-icon {
+    position: relative;
+    z-index: 2;
+
+    font-size: 50px;
+
+    line-height: 1;
+
+    margin-bottom: 17px;
+
+    filter: drop-shadow(
+        0 5px 5px rgba(60, 40, 20, 0.12)
+    );
+}
+
+
+/* -------------------------
+   MOOD TITLE
+   ------------------------- */
+
+.mood-card h2 {
+    position: relative;
+    z-index: 2;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+    font-weight: 600;
+
+    color: #4b291a;
+
+    margin-bottom: 5px;
+}
+
+
+/* -------------------------
+   MOOD DESCRIPTION
+   ------------------------- */
+
+.mood-card p {
+    position: relative;
+    z-index: 2;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: #7c604b;
+}
+
+
+/* =========================================================
+   SUBTLE MOOD ACCENTS
+   ========================================================= */
+
+/* Happy */
+
+.happy:hover {
+    border-color: rgba(63, 126, 78, 0.45);
+}
+
+
+/* Sad */
+
+.sad:hover {
+    border-color: rgba(44, 143, 171, 0.45);
+}
+
+
+/* Peace */
+
+.peace:hover {
+    border-color: rgba(180, 86, 133, 0.45);
+}
+
+
+/* Protection */
+
+.protection:hover {
+    border-color: rgba(201, 108, 65, 0.45);
+}
+
+
+/* Anxious */
+
+.anxious:hover {
+    border-color: rgba(157, 132, 91, 0.45);
+}
+
+
+/* Laziness */
+
+.laziness:hover {
+    border-color: rgba(199, 180, 65, 0.50);
+}
+
+
+/* Anger */
+
+.anger:hover {
+    border-color: rgba(181, 60, 50, 0.50);
+}
+
+
+/* Loneliness */
+
+.loneliness:hover {
+    border-color: rgba(139, 112, 190, 0.50);
+}
+
+
+/* =========================================================
+   FOOTER QUOTE
+   ========================================================= */
+
+.mood-footer {
+    margin-top: 48px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 21px;
+    font-style: italic;
+
+    color: #725037;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+
+/* Tablets */
+
+@media (max-width: 900px) {
+
+    .mood-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+    }
+
+    .mood-background {
+        padding-top: 40px;
+    }
+}
+
+
+/* Phones */
+
+@media (max-width: 560px) {
+
+    .mood-background {
+        padding: 35px 16px 35px;
+    }
+
+    .mood-container h1 {
+        font-size: 43px;
+    }
+
+    .mood-introduction {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .mood-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .mood-card {
+        min-height: 185px;
+        padding: 25px 15px;
+    }
+
+    .mood-icon {
+        font-size: 45px;
+    }
+
+    .mood-card h2 {
+        font-size: 28px;
+    }
+
+    .mood-footer {
+        font-size: 18px;
+        margin-top: 35px;
+    }
+
+    .feather {
+        font-size: 100px;
+    }
+}

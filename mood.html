@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Madhav Manaha | Your Manaha</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* ==================================================
+           RESET
+           ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family:
+                "Poppins",
+                sans-serif;
+
+            color: #3c2d23;
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* ==================================================
+           BACKGROUND
+           ================================================== */
+
+        .page {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                45px 30px 35px;
+
+            background:
+
+                radial-gradient(
+                    circle at 12% 15%,
+                    rgba(
+                        46,
+                        131,
+                        143,
+                        0.22
+                    ),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 88% 20%,
+                    rgba(
+                        255,
+                        218,
+                        132,
+                        0.38
+                    ),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(
+                        40,
+                        110,
+                        128,
+                        0.18
+                    ),
+                    transparent 38%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #f8ebc7 0%,
+                    #f5c976 40%,
+                    #e9a64f 72%,
+                    #d88b3e 100%
+                );
+
+        }
+
+
+        /* ==================================================
+           DECORATIVE ELEMENTS
+           ================================================== */
+
+        .glow {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+        }
+
+
+        .glow-one {
+
+            width: 450px;
+            height: 450px;
+
+            top: -230px;
+            right: -130px;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(
+                        31,
+                        111,
+                        130,
+                        0.20
+                    ),
+                    transparent 70%
+                );
+
+        }
+
+
+        .glow-two {
+
+            width: 400px;
+            height: 400px;
+
+            bottom: -220px;
+            left: -140px;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(
+                        37,
+                        106,
+                        123,
+                        0.16
+                    ),
+                    transparent 70%
+                );
+
+        }
+
+
+        /* --------------------------------------------------
+           Peacock feather
+           -------------------------------------------------- */
+
+        .feather {
+
+            position: absolute;
+
+            width: 130px;
+            height: 240px;
+
+            opacity: 0.12;
+
+            pointer-events: none;
+
+        }
+
+
+        .feather-left {
+
+            left: -15px;
+            bottom: -35px;
+
+            transform:
+                rotate(-25deg);
+
+        }
+
+
+        .feather-right {
+
+            right: -15px;
+            top: 30px;
+
+            transform:
+                rotate(24deg);
+
+        }
+
+
+        .feather-shaft {
+
+            position: absolute;
+
+            left: 50%;
+            bottom: 0;
+
+            width: 5px;
+            height: 205px;
+
+            transform:
+                translateX(-50%)
+                rotate(8deg);
+
+            border-radius: 10px;
+
+            background:
+
+                linear-gradient(
+                    to top,
+                    #7e5a34,
+                    #297c81
+                );
+
+        }
+
+
+        .feather-eye {
+
+            position: absolute;
+
+            left: 50%;
+            top: 0;
+
+            width: 75px;
+            height: 95px;
+
+            transform:
+                translateX(-50%);
+
+            border-radius:
+                50% 50% 45% 45%;
+
+            background:
+
+                radial-gradient(
+                    ellipse at center,
+                    #163d70 0 14%,
+                    #219ca0 15% 30%,
+                    #d1aa42 31% 41%,
+                    #327963 42% 62%,
+                    transparent 63%
+                );
+
+        }
+
+
+        /* ==================================================
+           TOP AREA
+           ================================================== */
+
+        .top {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 1100px;
+
+            margin:
+                0 auto 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+        }
+
+
+        .brand-feather {
+
+            font-size: 32px;
+
+        }
+
+
+        .brand-name {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            color: #493024;
+
+        }
+
+
+        .user-name {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 20px;
+
+            color: #5f4738;
+
+        }
+
+
+        .user-name span {
+
+            color: #23697b;
+
+            font-weight: 600;
+
+        }
+
+
+        /* ==================================================
+           MAIN INTRO
+           ================================================== */
+
+        .content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+
+        .om {
+
+            font-family: serif;
+
+            font-size: 53px;
+
+            color: #286477;
+
+            line-height: 1;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .small-heading {
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            font-weight: 600;
+
+            color: #286477;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        h1 {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size:
+                clamp(
+                    44px,
+                    6vw,
+                    68px
+                );
+
+            line-height: 1;
+
+            color: #4a2c20;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .question {
+
+            font-family:
+                "Noto Serif Devanagari",
+                serif;
+
+            font-size:
+                clamp(
+                    22px,
+                    3vw,
+                    29px
+                );
+
+            color: #5b4435;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .description {
+
+            max-width: 680px;
+
+            margin:
+                0 auto 40px;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            color: #6d5342;
+
+        }
+
+
+        /* ==================================================
+           MOOD GRID
+           ================================================== */
+
+        .mood-grid {
+
+            max-width: 1000px;
+
+            margin:
+                0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    1fr
+                );
+
+            gap: 20px;
+
+        }
+
+
+        /* ==================================================
+           MOOD CARD
+           ================================================== */
+
+        .mood-card {
+
+            position: relative;
+
+            min-height: 205px;
+
+            padding:
+                25px 18px;
+
+            border-radius: 24px;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.70
+                );
+
+            background:
+                rgba(
+                    255,
+                    249,
+                    231,
+                    0.72
+                );
+
+            backdrop-filter:
+                blur(11px);
+
+            -webkit-backdrop-filter:
+                blur(11px);
+
+            box-shadow:
+
+                0 12px 28px
+                rgba(
+                    89,
+                    57,
+                    30,
+                    0.13
+                );
+
+            cursor: pointer;
+
+            font-family:
+                "Poppins",
+                sans-serif;
+
+            transition:
+
+                transform 0.25s ease,
+
+                box-shadow 0.25s ease,
+
+                background 0.25s ease;
+
+        }
+
+
+        .mood-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            background:
+                rgba(
+                    255,
+                    252,
+                    239,
+                    0.92
+                );
+
+            box-shadow:
+
+                0 20px 40px
+                rgba(
+                    72,
+                    47,
+                    27,
+                    0.20
+                );
+
+        }
+
+
+        .mood-card:active {
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        /* ==================================================
+           ICON
+           ================================================== */
+
+        .mood-icon {
+
+            font-size: 45px;
+
+            line-height: 1;
+
+            margin-bottom: 17px;
+
+        }
+
+
+        /* ==================================================
+           CARD TITLE
+           ================================================== */
+
+        .mood-card h2 {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 29px;
+
+            font-weight: 600;
+
+            color: #43291d;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        /* ==================================================
+           CARD DESCRIPTION
+           ================================================== */
+
+        .mood-card p {
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            color: #786050;
+
+        }
+
+
+        /* ==================================================
+           INDIVIDUAL MOOD ACCENTS
+           ================================================== */
+
+        .happy:hover {
+            border-color:
+                rgba(65, 135, 73, 0.55);
+        }
+
+
+        .sad:hover {
+            border-color:
+                rgba(50, 140, 170, 0.55);
+        }
+
+
+        .peace:hover {
+            border-color:
+                rgba(180, 92, 135, 0.55);
+        }
+
+
+        .protection:hover {
+            border-color:
+                rgba(205, 111, 64, 0.55);
+        }
+
+
+        .anxious:hover {
+            border-color:
+                rgba(155, 132, 95, 0.60);
+        }
+
+
+        .laziness:hover {
+            border-color:
+                rgba(194, 172, 48, 0.60);
+        }
+
+
+        .anger:hover {
+            border-color:
+                rgba(181, 60, 50, 0.60);
+        }
+
+
+        .loneliness:hover {
+            border-color:
+                rgba(137, 108, 187, 0.60);
+        }
+
+
+        /* ==================================================
+           FOOTER
+           ================================================== */
+
+        .footer {
+
+            margin-top: 40px;
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 20px;
+
+            font-style: italic;
+
+            color: #71513d;
+
+        }
+
+
+        /* ==================================================
+           MOBILE
+           ================================================== */
+
+        @media (max-width: 850px) {
+
+            .mood-grid {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
+
+                max-width: 700px;
+
+            }
+
+        }
+
+
+        @media (max-width: 560px) {
+
+            .page {
+
+                padding:
+                    25px 15px 30px;
+
+            }
+
+
+            .top {
+
+                margin-bottom: 25px;
+
+            }
+
+
+            .brand-name {
+
+                font-size: 21px;
+
+            }
+
+
+            .user-name {
+
+                font-size: 16px;
+
+            }
+
+
+            .mood-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 14px;
+
+            }
+
+
+            .mood-card {
+
+                min-height: 165px;
+
+            }
+
+
+            .description {
+
+                font-size: 13px;
+
+                margin-bottom: 28px;
+
+            }
+
+
+            .footer {
+
+                font-size: 17px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="page">
+
+
+        <!-- BACKGROUND -->
+
+        <div class="glow glow-one"></div>
+
+        <div class="glow glow-two"></div>
+
+
+        <div class="feather feather-left">
+
+            <div class="feather-shaft"></div>
+
+            <div class="feather-eye"></div>
+
+        </div>
+
+
+        <div class="feather feather-right">
+
+            <div class="feather-shaft"></div>
+
+            <div class="feather-eye"></div>
+
+        </div>
+
+
+
+        <!-- TOP -->
+
+        <header class="top">
+
+
+            <div class="brand">
+
+                <div class="brand-feather">
+                    🦚
+                </div>
+
+                <div class="brand-name">
+                    Madhav Manaha
+                </div>
+
+            </div>
+
+
+            <div class="user-name">
+
+                Welcome,
+                <span id="userName">
+                    Seeker
+                </span>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- CONTENT -->
+
+        <section class="content">
+
+
+            <div class="om">
+                ॐ
+            </div>
+
+
+            <p class="small-heading">
+                A MOMENT WITH MADHAV
+            </p>
+
+
+            <h1>
+                What rests within your मन?
+            </h1>
+
+
+            <p class="question">
+                Choose what speaks to you right now.
+            </p>
+
+
+            <p class="description">
+
+                There is no right or wrong feeling.
+                Whatever rests within your मन,
+                let Madhav's wisdom meet you there.
+
+            </p>
+
+
+
+            <!-- ==================================================
+                 EXACTLY 8 MOODS
+                 ================================================== -->
+
+            <div class="mood-grid">
+
+
+                <!-- HAPPY -->
+
+                <button
+                    class="mood-card happy"
+                    onclick="selectMood('Happy')"
+                    type="button"
+                >
+
+                    <div class="mood-icon">
+                        😊
+                    </div>
+
+                    <h2>
+                        Happy
+                    </h2>
+
+                    <p>
+                        Joyful & grateful
+                    </p>
+
+                </button>
+
+
+
+                <!-- SAD -->
+
+                <button
+                    class="mood-card sad"
+                    onclick="selectMood('Sad')"
+                    type="button"
+                >
+
+                    <div class="mood-icon">
+                        💧
+                    </div>
+
+                    <h2>
+                        Sad
+                    </h2>
+
+                    <p>
+                        Seeking comfort
+                    </p>
+
+                </button>
+
+
+
+                <!-- PEACE -->
+
+                <button
+                    class="mood-card peace"
+                    onclick="selectMood('Peace')"
+                    type="button"
+                >
+
+                    <div class="mood-icon">
+                        🪷
+                    </div>
+
+                    <h2>
+                        Peace
+                    </h2>
+
+                    <p>
+                        Seeking stillness
+                    </p>
+
+                </button>
+
+
+
+                <!-- PROTECTION -->
+
+                <button
+                    class="mood-card protection"
+                    onclick="selectMood('Protection')"
+                    type="button"
+                >
+
+                    <div class="mood-icon">
+                        🛡️
+                    </div>
+
+                    <h2>
+                        Protection
+                    </h2>
+
+                    <p>
+                        Seeking strength
+                    </p>
+
+                </button>
+
+
+
+                <!-- ANXIOUS -->
+
+                <button
+                    class="mood-card anxious"
+                    onclick="selectMood('Anxious')"
+                    type="button"
+                >
+
+                    <div class="mood-icon">
+                        🌫️
+                    </div>
+
+                    <h2>
+                        Anxious
+                    </h2>
+
+                    <p>
+                        Mind feels restless
+                    </p>
+
+                </button>
+
+
+
+                <!-- LAZINESS -->
+
+                <button
+                    class="mood-card laziness"
+                    onclick="selectMood('Laziness')"
+                    type="button"
+                >
+
+                    <div class="mood-icon">
+                        😴
+                    </div>
+
+                    <h2>
+                        Laziness
+                    </h2>
+
+                    <p>
+                        Seeking motivation
+                    </p>
+
+                </button>
+
+
+
+                <!-- ANGER -->
+
+                <button
+                    class="mood-card anger"
+                    onclick="selectMood('Anger')"
+                    type="button"
+                >
+
+                    <div class="mood-icon">
+                        🔥
+                    </div>
+
+                    <h2>
+                        Anger
+                    </h2>
+
+                    <p>
+                        Seeking calm
+                    </p>
+
+                </button>
+
+
+
+                <!-- LONELINESS -->
+
+                <button
+                    class="mood-card loneliness"
+                    onclick="selectMood('Loneliness')"
+                    type="button"
+                >
+
+                    <div class="mood-icon">
+                        💜
+                    </div>
+
+                    <h2>
+                        Loneliness
+                    </h2>
+
+                    <p>
+                        Seeking connection
+                    </p>
+
+                </button>
+
+
+            </div>
+
+
+            <p class="footer">
+
+                "Wherever the mind wanders,
+                let wisdom bring it home."
+
+            </p>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+
+        /* -----------------------------------------------
+           READ USER NAME
+           ----------------------------------------------- */
+
+        const savedName =
+            localStorage.getItem(
+                "userName"
+            );
+
+
+        if (savedName) {
+
+            document.getElementById(
+                "userName"
+            ).textContent =
+                savedName;
+
+        }
+
+
+
+        /* -----------------------------------------------
+           SELECT MOOD
+           ----------------------------------------------- */
+
+        function selectMood(mood) {
+
+
+            /*
+             * Save the mood.
+             */
+
+            localStorage.setItem(
+                "selectedMood",
+                mood
+            );
+
+
+            /*
+             * Open the shloka page.
+             */
+
+            window.location.href =
+                "shloka.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
