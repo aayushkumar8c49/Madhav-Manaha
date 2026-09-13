@@ -37,7 +37,9 @@
 
             background: #e8c27b;
 
-            font-family: Arial, sans-serif;
+            font-family:
+                Arial,
+                sans-serif;
 
         }
 
@@ -63,6 +65,10 @@
         }
 
 
+        /* ==========================================
+           BACKGROUND IMAGE
+           ========================================== */
+
         .background-image {
 
             position: absolute;
@@ -80,6 +86,10 @@
 
         }
 
+
+        /* ==========================================
+           SOFT OVERLAY
+           ========================================== */
 
         .soft-overlay {
 
@@ -115,7 +125,8 @@
 
             bottom: 18%;
 
-            transform: translateX(-50%);
+            transform:
+                translateX(-50%);
 
             width: 230px;
 
@@ -136,7 +147,12 @@
 
             outline:
                 2px solid
-                rgba(255, 255, 255, 0.9);
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.9
+                );
 
             outline-offset: 5px;
 
@@ -164,13 +180,25 @@
             padding: 25px;
 
             background:
+
                 linear-gradient(
                     135deg,
-                    rgba(249, 239, 211, 0.88),
-                    rgba(230, 180, 98, 0.88)
+                    rgba(
+                        249,
+                        239,
+                        211,
+                        0.88
+                    ),
+                    rgba(
+                        230,
+                        180,
+                        98,
+                        0.88
+                    )
                 );
 
-            backdrop-filter: blur(4px);
+            backdrop-filter:
+                blur(4px);
 
         }
 
@@ -182,6 +210,10 @@
         }
 
 
+        /* ==========================================
+           NAME CARD
+           ========================================== */
+
         .name-card {
 
             width:
@@ -190,7 +222,8 @@
                     92vw
                 );
 
-            padding: 50px 45px;
+            padding:
+                50px 45px;
 
             text-align: center;
 
@@ -289,6 +322,10 @@
         }
 
 
+        /* ==========================================
+           NAME INPUT
+           ========================================== */
+
         #nameInput {
 
             width: 100%;
@@ -341,6 +378,10 @@
         }
 
 
+        /* ==========================================
+           CONTINUE BUTTON
+           ========================================== */
+
         .continue-button {
 
             margin-top: 22px;
@@ -352,7 +393,8 @@
             padding:
                 15px 34px;
 
-            background: #286477;
+            background:
+                #286477;
 
             color: white;
 
@@ -365,10 +407,15 @@
 
         .continue-button:hover {
 
-            background: #205568;
+            background:
+                #205568;
 
         }
 
+
+        /* ==========================================
+           ERROR MESSAGE
+           ========================================== */
 
         .error-message {
 
@@ -392,16 +439,15 @@
             .begin-area {
 
                 /*
-                 * Larger mobile click area because
-                 * the background image gets cropped
-                 * differently on phones.
+                 * Larger and higher click area
+                 * for mobile phones.
                  */
 
                 width: 280px;
 
                 height: 105px;
 
-                bottom: 14%;
+                bottom: 25%;
 
             }
 
@@ -444,8 +490,15 @@
         >
 
 
-        <div class="soft-overlay"></div>
+        <div
+            class="soft-overlay"
+        ></div>
 
+
+        <!--
+            Invisible button positioned
+            over the artwork's button.
+        -->
 
         <button
             class="begin-area"
@@ -469,25 +522,35 @@
     >
 
 
-        <div class="name-card">
+        <div
+            class="name-card"
+        >
 
 
-            <div class="name-logo">
+            <div
+                class="name-logo"
+            >
                 🦚
             </div>
 
 
-            <p class="name-label">
+            <p
+                class="name-label"
+            >
                 YOUR JOURNEY BEGINS
             </p>
 
 
-            <h1 class="name-title">
+            <h1
+                class="name-title"
+            >
                 What may we call you?
             </h1>
 
 
-            <p class="name-description">
+            <p
+                class="name-description"
+            >
 
                 Every journey inward begins
                 with knowing who walks the path.
@@ -535,6 +598,10 @@
     <script>
 
 
+        /* ------------------------------------------
+           GET ELEMENTS
+           ------------------------------------------ */
+
         const beginBtn =
             document.getElementById(
                 "beginBtn"
@@ -566,9 +633,9 @@
 
 
 
-        /* ==========================================
+        /* ------------------------------------------
            BEGIN JOURNEY
-           ========================================== */
+           ------------------------------------------ */
 
         beginBtn.addEventListener(
             "click",
@@ -585,9 +652,9 @@
 
 
 
-        /* ==========================================
+        /* ------------------------------------------
            SAVE NAME
-           ========================================== */
+           ------------------------------------------ */
 
         continueBtn.addEventListener(
             "click",
@@ -623,9 +690,9 @@
 
 
 
-        /* ==========================================
+        /* ------------------------------------------
            ENTER KEY
-           ========================================== */
+           ------------------------------------------ */
 
         nameInput.addEventListener(
             "keydown",
