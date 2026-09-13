@@ -107,18 +107,8 @@
             background:
                 linear-gradient(
                     to bottom,
-                    rgba(
-                        255,
-                        255,
-                        255,
-                        0.02
-                    ),
-                    rgba(
-                        60,
-                        38,
-                        22,
-                        0.08
-                    )
+                    rgba(255, 255, 255, 0.02),
+                    rgba(60, 38, 22, 0.08)
                 );
 
             z-index: 2;
@@ -129,7 +119,7 @@
 
 
         /* ==========================================
-           INVISIBLE BEGIN BUTTON
+           BEGIN BUTTON
            ========================================== */
 
         .begin-area {
@@ -164,12 +154,7 @@
 
             outline:
                 2px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.9
-                );
+                rgba(255, 255, 255, 0.9);
 
             outline-offset: 5px;
 
@@ -177,7 +162,7 @@
 
 
         /* ==========================================
-           PORTRAIT ROTATE SCREEN
+           ROTATE SCREEN
            ========================================== */
 
         .rotate-screen {
@@ -263,7 +248,8 @@
             margin-bottom: 20px;
 
             animation:
-                rotatePhone 2s
+                rotatePhone
+                2s
                 ease-in-out
                 infinite;
 
@@ -377,7 +363,6 @@
             padding: 25px;
 
             background:
-
                 linear-gradient(
                     135deg,
                     rgba(
@@ -406,10 +391,6 @@
 
         }
 
-
-        /* ==========================================
-           NAME CARD
-           ========================================== */
 
         .name-card {
 
@@ -472,8 +453,7 @@
 
             letter-spacing: 4px;
 
-            color:
-                #286477;
+            color: #286477;
 
             margin-bottom: 14px;
 
@@ -493,8 +473,7 @@
                     60px
                 );
 
-            color:
-                #4b291a;
+            color: #4b291a;
 
             margin-bottom: 14px;
 
@@ -516,8 +495,7 @@
 
             line-height: 1.5;
 
-            color:
-                #674b38;
+            color: #674b38;
 
         }
 
@@ -636,9 +614,9 @@
            ========================================== */
 
         @media (
-            max-width: 900px
-        ) and (
             orientation: landscape
+        ) and (
+            pointer: coarse
         ) {
 
             .begin-area {
@@ -671,13 +649,6 @@
                 font-size: 42px;
 
                 margin-bottom: 6px;
-
-            }
-
-
-            .name-label {
-
-                margin-bottom: 8px;
 
             }
 
@@ -725,9 +696,9 @@
            ========================================== */
 
         @media (
-            max-width: 900px
-        ) and (
             orientation: portrait
+        ) and (
+            pointer: coarse
         ) {
 
             .landing-screen {
@@ -775,8 +746,6 @@
         ></div>
 
 
-        <!-- Invisible button -->
-
         <button
             class="begin-area"
             id="beginBtn"
@@ -790,7 +759,7 @@
 
 
     <!-- ==========================================
-         ROTATE DEVICE SCREEN
+         ROTATE SCREEN
          ========================================== -->
 
     <section
@@ -807,7 +776,9 @@
             <div
                 class="rotate-symbol"
             >
+
                 📱
+
             </div>
 
 
@@ -944,10 +915,6 @@
     <script>
 
 
-        /* ==========================================
-           ELEMENTS
-           ========================================== */
-
         const beginBtn =
             document.getElementById(
                 "beginBtn"
@@ -975,12 +942,6 @@
         const nameError =
             document.getElementById(
                 "nameError"
-            );
-
-
-        const rotateScreen =
-            document.getElementById(
-                "rotateScreen"
             );
 
 
@@ -1061,63 +1022,6 @@
             }
         );
 
-
-
-        /* ==========================================
-           ORIENTATION CHECK
-           ========================================== */
-
-        function checkOrientation() {
-
-            const isPortrait =
-                window.innerHeight >
-                window.innerWidth;
-
-
-            if (
-                isPortrait &&
-                window.innerWidth <= 900
-            ) {
-
-                rotateScreen.style.display =
-                    "flex";
-
-            }
-
-            else {
-
-                rotateScreen.style.display =
-                    "none";
-
-            }
-
-        }
-
-
-        /* Check when page loads */
-
-        checkOrientation();
-
-
-        /* Check whenever phone rotates */
-
-        window.addEventListener(
-            "resize",
-            checkOrientation
-        );
-
-
-        window.addEventListener(
-            "orientationchange",
-            function () {
-
-                setTimeout(
-                    checkOrientation,
-                    200
-                );
-
-            }
-        );
 
     </script>
 
