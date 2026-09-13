@@ -15,10 +15,17 @@
 
     <style>
 
+        /* ==========================================
+           RESET
+           ========================================== */
+
         * {
+
             margin: 0;
             padding: 0;
+
             box-sizing: border-box;
+
         }
 
 
@@ -66,7 +73,7 @@
 
 
         /* ==========================================
-           BACKGROUND IMAGE
+           BACKGROUND ARTWORK
            ========================================== */
 
         .background-image {
@@ -100,8 +107,18 @@
             background:
                 linear-gradient(
                     to bottom,
-                    rgba(255, 255, 255, 0.02),
-                    rgba(60, 38, 22, 0.08)
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.02
+                    ),
+                    rgba(
+                        60,
+                        38,
+                        22,
+                        0.08
+                    )
                 );
 
             z-index: 2;
@@ -112,7 +129,7 @@
 
 
         /* ==========================================
-           DESKTOP BEGIN BUTTON
+           INVISIBLE BEGIN BUTTON
            ========================================== */
 
         .begin-area {
@@ -155,6 +172,186 @@
                 );
 
             outline-offset: 5px;
+
+        }
+
+
+        /* ==========================================
+           PORTRAIT ROTATE SCREEN
+           ========================================== */
+
+        .rotate-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #183e50,
+                    #286477,
+                    #b9823e
+                );
+
+            color: white;
+
+        }
+
+
+        .rotate-card {
+
+            width:
+                min(
+                    500px,
+                    90vw
+                );
+
+            padding:
+                40px 28px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.12
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.25
+                );
+
+            backdrop-filter:
+                blur(10px);
+
+            box-shadow:
+                0 25px 70px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.25
+                );
+
+        }
+
+
+        .rotate-symbol {
+
+            font-size: 65px;
+
+            margin-bottom: 20px;
+
+            animation:
+                rotatePhone 2s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        .rotate-title {
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(
+                    30px,
+                    7vw,
+                    48px
+                );
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .rotate-text {
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.9
+                );
+
+        }
+
+
+        .rotate-small {
+
+            margin-top: 18px;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.7
+                );
+
+        }
+
+
+        @keyframes rotatePhone {
+
+            0% {
+
+                transform:
+                    rotate(0deg);
+
+            }
+
+            50% {
+
+                transform:
+                    rotate(90deg);
+
+            }
+
+            100% {
+
+                transform:
+                    rotate(90deg);
+
+            }
 
         }
 
@@ -275,7 +472,8 @@
 
             letter-spacing: 4px;
 
-            color: #286477;
+            color:
+                #286477;
 
             margin-bottom: 14px;
 
@@ -295,7 +493,8 @@
                     60px
                 );
 
-            color: #4b291a;
+            color:
+                #4b291a;
 
             margin-bottom: 14px;
 
@@ -317,7 +516,8 @@
 
             line-height: 1.5;
 
-            color: #674b38;
+            color:
+                #674b38;
 
         }
 
@@ -423,7 +623,8 @@
 
             margin-top: 10px;
 
-            color: #9b382d;
+            color:
+                #9b382d;
 
             font-size: 13px;
 
@@ -431,43 +632,119 @@
 
 
         /* ==========================================
-           MOBILE
+           MOBILE LANDSCAPE
            ========================================== */
 
-        @media (max-width: 600px) {
+        @media (
+            max-width: 900px
+        ) and (
+            orientation: landscape
+        ) {
 
             .begin-area {
 
-                /*
-                 * On phones the artwork is cropped
-                 * differently, so the clickable area
-                 * is intentionally placed much higher.
-                 */
+                width: 230px;
 
-                width: 300px;
+                height: 65px;
 
-                height: 110px;
-
-                bottom: 40%;
+                bottom: 18%;
 
             }
 
 
             .name-card {
 
+                width:
+                    min(
+                        650px,
+                        85vw
+                    );
+
                 padding:
-                    40px 24px;
+                    30px 35px;
+
+            }
+
+
+            .name-logo {
+
+                font-size: 42px;
+
+                margin-bottom: 6px;
+
+            }
+
+
+            .name-label {
+
+                margin-bottom: 8px;
+
+            }
+
+
+            .name-title {
+
+                font-size: 38px;
+
+                margin-bottom: 8px;
 
             }
 
 
             .name-description {
 
-                font-size: 18px;
+                font-size: 16px;
+
+                margin-bottom: 18px;
+
+            }
+
+
+            #nameInput {
+
+                padding:
+                    12px 18px;
+
+            }
+
+
+            .continue-button {
+
+                margin-top: 14px;
+
+                padding:
+                    12px 28px;
 
             }
 
         }
+
+
+        /* ==========================================
+           MOBILE PORTRAIT
+           ========================================== */
+
+        @media (
+            max-width: 900px
+        ) and (
+            orientation: portrait
+        ) {
+
+            .landing-screen {
+
+                display: none;
+
+            }
+
+
+            .rotate-screen {
+
+                display: flex;
+
+            }
+
+        }
+
 
     </style>
 
@@ -498,7 +775,7 @@
         ></div>
 
 
-        <!-- Invisible clickable area -->
+        <!-- Invisible button -->
 
         <button
             class="begin-area"
@@ -509,6 +786,69 @@
 
 
     </main>
+
+
+
+    <!-- ==========================================
+         ROTATE DEVICE SCREEN
+         ========================================== -->
+
+    <section
+        class="rotate-screen"
+        id="rotateScreen"
+    >
+
+
+        <div
+            class="rotate-card"
+        >
+
+
+            <div
+                class="rotate-symbol"
+            >
+                📱
+            </div>
+
+
+            <h1
+                class="rotate-title"
+            >
+
+                Turn Your Journey
+
+            </h1>
+
+
+            <p
+                class="rotate-text"
+            >
+
+                Madhav Manaha is designed
+                for a landscape experience.
+
+                <br>
+
+                Please rotate your phone
+                horizontally to begin
+                your journey.
+
+            </p>
+
+
+            <p
+                class="rotate-small"
+            >
+
+                🦚 Madhav Manaha
+
+            </p>
+
+
+        </div>
+
+
+    </section>
 
 
 
@@ -530,21 +870,27 @@
             <div
                 class="name-logo"
             >
+
                 🦚
+
             </div>
 
 
             <p
                 class="name-label"
             >
+
                 YOUR JOURNEY BEGINS
+
             </p>
 
 
             <h1
                 class="name-title"
             >
+
                 What may we call you?
+
             </h1>
 
 
@@ -598,9 +944,9 @@
     <script>
 
 
-        /* ------------------------------------------
+        /* ==========================================
            ELEMENTS
-           ------------------------------------------ */
+           ========================================== */
 
         const beginBtn =
             document.getElementById(
@@ -632,10 +978,16 @@
             );
 
 
+        const rotateScreen =
+            document.getElementById(
+                "rotateScreen"
+            );
 
-        /* ------------------------------------------
+
+
+        /* ==========================================
            BEGIN JOURNEY
-           ------------------------------------------ */
+           ========================================== */
 
         beginBtn.addEventListener(
             "click",
@@ -652,9 +1004,9 @@
 
 
 
-        /* ------------------------------------------
+        /* ==========================================
            SAVE NAME
-           ------------------------------------------ */
+           ========================================== */
 
         continueBtn.addEventListener(
             "click",
@@ -690,9 +1042,9 @@
 
 
 
-        /* ------------------------------------------
+        /* ==========================================
            ENTER KEY
-           ------------------------------------------ */
+           ========================================== */
 
         nameInput.addEventListener(
             "keydown",
@@ -705,6 +1057,64 @@
                     continueBtn.click();
 
                 }
+
+            }
+        );
+
+
+
+        /* ==========================================
+           ORIENTATION CHECK
+           ========================================== */
+
+        function checkOrientation() {
+
+            const isPortrait =
+                window.innerHeight >
+                window.innerWidth;
+
+
+            if (
+                isPortrait &&
+                window.innerWidth <= 900
+            ) {
+
+                rotateScreen.style.display =
+                    "flex";
+
+            }
+
+            else {
+
+                rotateScreen.style.display =
+                    "none";
+
+            }
+
+        }
+
+
+        /* Check when page loads */
+
+        checkOrientation();
+
+
+        /* Check whenever phone rotates */
+
+        window.addEventListener(
+            "resize",
+            checkOrientation
+        );
+
+
+        window.addEventListener(
+            "orientationchange",
+            function () {
+
+                setTimeout(
+                    checkOrientation,
+                    200
+                );
 
             }
         );
