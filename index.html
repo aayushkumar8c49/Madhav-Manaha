@@ -37,9 +37,7 @@
 
             background: #e8c27b;
 
-            font-family:
-                Arial,
-                sans-serif;
+            font-family: Arial, sans-serif;
 
         }
 
@@ -58,15 +56,12 @@
             display: flex;
 
             justify-content: center;
-
             align-items: center;
 
             overflow: hidden;
 
         }
 
-
-        /* Generated artwork */
 
         .background-image {
 
@@ -85,8 +80,6 @@
 
         }
 
-
-        /* Soft overlay */
 
         .soft-overlay {
 
@@ -108,11 +101,9 @@
         }
 
 
-        /*
-         * Invisible clickable area placed over
-         * the "Begin Your Journey" button
-         * inside the artwork.
-         */
+        /* ==========================================
+           INVISIBLE BEGIN BUTTON
+           ========================================== */
 
         .begin-area {
 
@@ -122,14 +113,9 @@
 
             left: 50%;
 
-            /*
-             * Moved further upward
-             */
-
             bottom: 18%;
 
-            transform:
-                translateX(-50%);
+            transform: translateX(-50%);
 
             width: 230px;
 
@@ -150,12 +136,7 @@
 
             outline:
                 2px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.9
-                );
+                rgba(255, 255, 255, 0.9);
 
             outline-offset: 5px;
 
@@ -183,25 +164,13 @@
             padding: 25px;
 
             background:
-
                 linear-gradient(
                     135deg,
-                    rgba(
-                        249,
-                        239,
-                        211,
-                        0.88
-                    ),
-                    rgba(
-                        230,
-                        180,
-                        98,
-                        0.88
-                    )
+                    rgba(249, 239, 211, 0.88),
+                    rgba(230, 180, 98, 0.88)
                 );
 
-            backdrop-filter:
-                blur(4px);
+            backdrop-filter: blur(4px);
 
         }
 
@@ -221,8 +190,7 @@
                     92vw
                 );
 
-            padding:
-                50px 45px;
+            padding: 50px 45px;
 
             text-align: center;
 
@@ -384,8 +352,7 @@
             padding:
                 15px 34px;
 
-            background:
-                #286477;
+            background: #286477;
 
             color: white;
 
@@ -398,8 +365,7 @@
 
         .continue-button:hover {
 
-            background:
-                #205568;
+            background: #205568;
 
         }
 
@@ -425,11 +391,17 @@
 
             .begin-area {
 
-                width: 190px;
+                /*
+                 * Larger mobile click area because
+                 * the background image gets cropped
+                 * differently on phones.
+                 */
 
-                height: 58px;
+                width: 280px;
 
-                bottom: 13%;
+                height: 105px;
+
+                bottom: 14%;
 
             }
 
@@ -474,8 +446,6 @@
 
         <div class="soft-overlay"></div>
 
-
-        <!-- Invisible clickable area -->
 
         <button
             class="begin-area"
@@ -565,10 +535,6 @@
     <script>
 
 
-        /* ------------------------------------------
-           ELEMENTS
-           ------------------------------------------ */
-
         const beginBtn =
             document.getElementById(
                 "beginBtn"
@@ -600,9 +566,9 @@
 
 
 
-        /* ------------------------------------------
+        /* ==========================================
            BEGIN JOURNEY
-           ------------------------------------------ */
+           ========================================== */
 
         beginBtn.addEventListener(
             "click",
@@ -619,9 +585,9 @@
 
 
 
-        /* ------------------------------------------
+        /* ==========================================
            SAVE NAME
-           ------------------------------------------ */
+           ========================================== */
 
         continueBtn.addEventListener(
             "click",
@@ -657,9 +623,9 @@
 
 
 
-        /* ------------------------------------------
+        /* ==========================================
            ENTER KEY
-           ------------------------------------------ */
+           ========================================== */
 
         nameInput.addEventListener(
             "keydown",
