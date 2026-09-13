@@ -112,7 +112,7 @@
 
 
         /* ==========================================
-           INVISIBLE BEGIN BUTTON
+           DESKTOP BEGIN BUTTON
            ========================================== */
 
         .begin-area {
@@ -439,15 +439,16 @@
             .begin-area {
 
                 /*
-                 * Larger and higher click area
-                 * for mobile phones.
+                 * On phones the artwork is cropped
+                 * differently, so the clickable area
+                 * is intentionally placed much higher.
                  */
 
-                width: 280px;
+                width: 300px;
 
-                height: 105px;
+                height: 110px;
 
-                bottom: 25%;
+                bottom: 40%;
 
             }
 
@@ -480,7 +481,9 @@
          LANDING PAGE
          ========================================== -->
 
-    <main class="landing-screen">
+    <main
+        class="landing-screen"
+    >
 
 
         <img
@@ -495,10 +498,7 @@
         ></div>
 
 
-        <!--
-            Invisible button positioned
-            over the artwork's button.
-        -->
+        <!-- Invisible clickable area -->
 
         <button
             class="begin-area"
@@ -599,7 +599,7 @@
 
 
         /* ------------------------------------------
-           GET ELEMENTS
+           ELEMENTS
            ------------------------------------------ */
 
         const beginBtn =
