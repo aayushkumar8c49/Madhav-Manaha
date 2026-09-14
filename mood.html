@@ -1128,7 +1128,10 @@
          JAVASCRIPT
          ===================================================== -->
 
-    <script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+
+<script>
 
 
         /* -----------------------------------------------
@@ -1156,28 +1159,78 @@
            SELECT MOOD
            ----------------------------------------------- */
 
-        function selectMood(mood) {
+       async function selectMood(mood) {
+
+    const savedName =
+        localStorage.getItem("userName");
 
 
-            /*
-             * Save the mood.
-             */
+    if (!savedName) {
 
-            localStorage.setItem(
-                "selectedMood",
-                mood
-            );
+        alert("Please enter your name first.");
+
+        window.location.href =
+            "index.html";
+
+        return;
+
+    }
 
 
-            /*
-             * Open the shloka page.
-             */
+    /*
+     * Save the selected mood locally
+     */
 
-            window.location.href =
-                "shloka.html";
+    localStorage.setItem(
+        "selectedMood",
+        mood
+    );
 
-        }
 
+    /*
+     * Save visitor information
+     * to Supabase
+     */
+
+    const { error } =
+        await supabaseClient
+            .from("visitors")
+            .insert([
+                {
+                    name: savedName,
+                    mood: mood
+                }
+            ]);
+
+
+    /*
+     * Handle Supabase errors
+     */
+
+    if (error) {
+
+        console.error(
+            "Supabase error:",
+            error
+        );
+
+        alert(
+            "We could not save your journey right now. Please try again."
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * Continue to the shloka page
+     */
+
+    window.location.href =
+        "shloka.html";
+
+}
     </script>
 
 
